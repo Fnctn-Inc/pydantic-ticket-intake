@@ -67,7 +67,7 @@ def resolve_span(customer_messages: dict[str, str], evidence: Evidence, field: s
     if field == "order_reference":
         whole_reference = any(
             (start, end) == match.span()
-            for match in re.finditer(r"\bORD-[0-9]{4,12}\b", source)
+            for match in re.finditer(r"(?<![\w-])ORD-[0-9]{4,12}(?![\w-])", source)
         )
         if not whole_reference:
             raise ValueError("order_reference must be a complete ORD-number from the source.")

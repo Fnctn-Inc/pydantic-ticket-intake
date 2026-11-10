@@ -93,6 +93,14 @@ def test_overlapping_occurrences_require_a_longer_quote(proposal):
         to_review_draft(ticket, candidate)
 
 
+@pytest.mark.parametrize("reference", ["ORD-8492-EXTRA", "LEGACY-ORD-8492", "ORD-84920"])
+def test_order_reference_is_not_part_of_a_larger_identifier(ticket, proposal, reference):
+    data = ticket.model_dump()
+    data["messages"][0]["text"] = data["messages"][0]["text"].replace("ORD-8492", reference)
+    with pytest.raises(ValueError, match="complete ORD-number"):
+        to_review_draft(Ticket.model_validate(data), Proposal.model_validate(proposal))
+
+
 def test_no_issue_abstains(ticket):
     fields = {"issue": None, "requested_outcome": None, "order_reference": None}
     assert to_review_draft(ticket, Proposal(category="other", **fields)).status == "needs_clarification"
