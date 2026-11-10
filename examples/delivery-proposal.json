@@ -1,0 +1,15 @@
+{
+  "category": "delivery",
+  "issue": {
+    "message_id": "customer-1",
+    "quote": "shows delivered, but nothing arrived"
+  },
+  "requested_outcome": {
+    "message_id": "customer-1",
+    "quote": "Please check with the carrier."
+  },
+  "order_reference": {
+    "message_id": "customer-1",
+    "quote": "ORD-8492"
+  }
+}

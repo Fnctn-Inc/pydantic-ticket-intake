@@ -1,0 +1,15 @@
+{
+  "id": "ticket-240",
+  "messages": [
+    {
+      "id": "customer-1",
+      "role": "customer",
+      "text": "Order ORD-8492 shows delivered, but nothing arrived. Please check with the carrier."
+    },
+    {
+      "id": "staff-1",
+      "role": "staff",
+      "text": "Waiting for the warehouse team."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling==1.28.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pydantic-ticket-intake"
+version = "0.1.0"
+description = "Turn support messages into a review draft with exact source quotes using Pydantic AI."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["pydantic-ai-slim==2.66.0"]
+
+[project.scripts]
+ticket-intake = "ticket_intake.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ticket_intake"]
+
+[dependency-groups]
+dev = ["pytest==9.2.0"]
